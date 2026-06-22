@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Work List</title>
+
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/css/main.css" rel="stylesheet">
+
+    <style>
+        .game-list-container {
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+
+        .game-item {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .game-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .game-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #45505b;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body class="index-page">
+
+    <header id="header" class="header d-flex flex-column justify-content-center">
+
+        <i class="header-toggle d-xl-none bi bi-list"></i>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="../index.html" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+                <li><a href="../index.html#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
+                <li><a href="../index.html#skills"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="main">
+        <div class="container game-list-container">
+            <div class="section-title">
+                <h2>作品列表</h2>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+
+                    <div class="game-item">
+                        <h3 class="game-title">踩地雷</h3>
+                        <a href="minesweeper/mine.html" class="btn btn-primary" target="_blank">查看</a>
+                    </div>
+
+                    <div class="game-item">
+                        <h3 class="game-title">水排序</h3>
+                        <a href="waterball\waterball.html" class="btn btn-primary" target="_blank">查看</a>
+                    </div>
+
+                    <div class="game-item">
+                        <h3 class="game-title">weditor</h3>
+                        <a href="https://weditor-xi.vercel.app" class="btn btn-primary" target="_blank">查看</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const headerToggleBtn = document.querySelector('.header-toggle');
+
+        if (headerToggleBtn) {
+            const headerToggle = () => {
+                document.querySelector('#header').classList.toggle('header-show');
+                headerToggleBtn.classList.toggle('bi-list');
+                headerToggleBtn.classList.toggle('bi-x');
+            };
+
+            headerToggleBtn.addEventListener('click', headerToggle);
+
+            document.querySelectorAll('#navmenu a').forEach(navmenu => {
+                navmenu.addEventListener('click', () => {
+                    if (document.querySelector('.header-show')) {
+                        headerToggle();
+                    }
+                });
+            });
+        }
+    </script>
+
+</body>
+
+</html>
